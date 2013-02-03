@@ -18,13 +18,13 @@ article:
 
 * This blue box shows page highlights.
 * Learn Web-UI - a basic knowledge of the Dart language is useful.
+* You'll need the Dart Editor to work through this tutorial, 
+  (but it's not mandatory for Web UI).
 * This tutorial is a port of the AngularJS Phone Catalog tutorial.
-* Dart is an open-source platform for building structured HTML5 web apps.
 
 {% endcapture %}
 
 {% capture content %}
-
 
 A great way to get introduced to Dart WebUI is to work through this tutorial, 
 which walks you through the construction of an WebUI web app. The app you 
@@ -69,8 +69,26 @@ about Web UI and the application you are building.
 You can go through the whole tutorial in a couple of hours or you may want to 
 spend a pleasant day really digging into it. If you're looking for a shorter 
 introduction to Web UI, check out the 
-[Web UI](http://www.dartlang.org/articles/dart-web-components/) document.
+[Web UI](http://www.dartlang.org/articles/dart-web-components/) document.  
+If you're interested in how the WebUI tools work, read the 
+[Tools for Web UI](http://localhost:8080/articles/dart-web-components/tools.html)
+article.
 
+## Start Here
+
+Although using the Dart Editor is not mandatory for working with WebUI, it does
+help you a lot.  This tutorial assumes that you're working with the 
+Dart Editor.
+
+To get started, you'll need the following:
+
+  * [The Dart Editor](http://www.dartlang.org/editor/), downloaded and 
+    unzipped on your machine.  This contains all the tools you'll need to 
+    get started.  Check out the [getting started](http://localhost:8080/docs/tutorials/get-started/) 
+    tutorial for help.
+  * The [sample code from github](https://github.com/chrisbu/dart-phonecat) that 
+    goes along with this article.  The instructions below explain how to get the
+    sample code.
 
 <div class="tabbable" show="true">
   <ul class="nav nav-tabs">
@@ -79,19 +97,58 @@ introduction to Web UI, check out the
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="git-mac">
-      **// TODO Git on mac instructions**
+      <p>If you need to install git, grab the installer 
+      <a href="http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git">from google code</a>.</p>
+
+      <p>From the terminal change into a suitable working folder, 
+        such as <code>~/work/"</code> and run the 
+      following command to grab a copy of the repository.
+      <pre>git clone https://github.com/chrisbu/dart-phonecat.git</pre></p>
     </div>
 
     <div class="tab-pane" id="git-win">
-      **//TODO Git on windows instructions**
+      <p>If you need to install git, grab the installer 
+      <a href="http://code.google.com/p/msysgit/downloads/list?q=full+installer+official+git">from google code</a>.</p>
+
+      <p>From the command prompt (or the "Git Bash" application) change into a 
+      suitable working folder, such as <code>c:\work\</code> and run the 
+      following command to grab a copy of the repository.
+      <pre>git clone https://github.com/chrisbu/dart-phonecat.git</pre></p>
     </div>
   </div>
 </div>
 
+Change into the new `dart-phonecat` folder using 
 
-The last thing to do is to make sure your computer has a web browser and a good text editor
-installed. Now, let's get some cool stuff done!
+    cd dart-phonecat
 
+You are now in your local git repo, in the master branch.  
+Each of the code samples in this tutorial are in feature branches.  To
+switch between each of the branches, use the `<code>git checkout` 
+command.  For example, the following line switches to the step-0 branch,
+discarding any changes you might have made to master.
+
+    git checkout -f step-0
+
+## Serving HTTP data from the dart-phonecat folder
+
+The client-side app requests data from `http://localhost:8000/` 
+which serves files from the root of your dart-phonecat folder.
+You can use any HTTP server for this purpose, but there is a simple http server
+provided in the `bin/` folder.  From the commmand line, from the 
+`dart-phonecat/` folder, run:
+
+    dart bin/simplehttpserver.dart
+
+which will start serving files from `dart-phonecat/`
+
+<aside class="alert alert-info" markdown="1">
+  <strong>Tip:</strong>
+  Add the `dart` executable, found in the editor zip file at `dart/dart-sdk/bin/` to
+  your path.  This makes running Dart apps from the command line easier.
+</aside>
+
+Now, let's get some awesome stuff done!
 
 <div class="row">
   <div class="span3">
