@@ -144,11 +144,13 @@ which will start serving files from `dart-phonecat/`
 
 <aside class="alert alert-info" markdown="1">
   <strong>Tip:</strong>
-  Add the `dart` executable, found in the editor zip file at `dart/dart-sdk/bin/` to
-  your path.  This makes running Dart apps from the command line easier.
+  Add the `dart` executable, found in the editor zip file at 
+  `dart/dart-sdk/bin/` to your path.  
+  This makes running Dart apps from the command line easier.
 </aside>
 
-Now, let's get some awesome stuff done!
+Checkout the `step-0` branch now, open the `dart-phonecat` folder in the Dart 
+Editor, and let's get some awesome stuff done!
 
 <div class="row">
   <div class="span3">
