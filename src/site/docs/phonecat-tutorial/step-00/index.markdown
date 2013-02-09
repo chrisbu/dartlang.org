@@ -27,22 +27,9 @@ app.
 If you've been through another Web-UI tutorial, or are happy with how the Web UI
 build tool work, feel free to skip this step.
 
-<div class="tabbable" show="true">
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#git-mac" data-toggle="tab">Git on Mac/Linux</a></li>
-    <li><a href="#git-win" data-toggle="tab">Git on Windows</a></li>
-  </ul>
-  <div class="tab-content">
-    <div class="tab-pane active" id="git-mac">
-    	<p>In <code>dart-phonecat</code> directory, run this command:</p>
-    </div>
-
-    <div class="tab-pane" id="git-win">
-      <p>Open Git Bash and run this command (in the <code>dart-phonecat</code> 
-        directory):</p>
-    </div>
-  </div>
-</div>
+![dart-logo](/imgs/Dart_Logo_21.png)
+Using the terminal, or Git Bash, change into the  `dart-phonecat` folder
+and run this command:
 
     git checkout -f step-0
 
@@ -73,8 +60,8 @@ in the Dartium web browser, and you should get an html page that shows
 ![First run output](images/00_02-project-first-run.png)
 
 It's not very exciting, but that's OK - this is a running Dart Web UI app, and
-some key processes have occurred to get us to this point.  Let's take a look at 
-the main html file that contains our app.
+some key processes have occurred to get us to this point.  Take a look at 
+the main html file that contains our app:
 
 **web/app.html**:
 
@@ -181,7 +168,7 @@ that is currently missing from many browsers.
   own original content.
 </aside>
 
-Let's take a look at the output of the Web UI compiler, which has 
+Take a look at the output of the Web UI compiler:
 
 **web/out/app.html**:
 
@@ -285,7 +272,7 @@ Web UI provides a cross-browser implementation of the Web Components
 specification, and adds model driven views.  The Dart Editor uses the Web UI
 compiler to produce a bootstrapped output.
 
-Now that you are familiar with the tools, let's move on to [step 1](../step-01/)
+Now that you are familiar with the tools, move on to [step 1](../step-01/)
 , where you will see the first part of our Phone Catalog as a static html file.
 
 {% endcapture %}
