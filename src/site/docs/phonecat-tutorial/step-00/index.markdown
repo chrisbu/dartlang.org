@@ -41,7 +41,8 @@ builds a WebUI project, and run the application in the browser.
 
     git checkout -f step-0
 
-This resets your workspace to step 0 of the tutorial app.
+This resets your workspace to step 0 of the tutorial app and discards any local
+changes.
 
 You must repeat this for every future step in the tutorial and 
 change the number to the number of the step you are on. This will 
@@ -49,6 +50,23 @@ cause any changes you made within your working directory
 to be lost.
 
 ## Open the project
+
+Use the Dart Editor's `Open Folder` dialog, browse to `dart-phonecat` project.  
+After a few seconds of "analyzing" and "building" (more on this in a minute), 
+the your project structure will look like this:
+
+![Project layout](images/00_01-project-layout.png)
+
+Hit the green `Run` button to start running the app.  This starts the project 
+in the Dartium web browser, and you should get an html page that shows 
+"Nothing here yet!":
+
+![First run output](images/00_02-project-first-run.png)
+
+It's not very exciting, but that's OK - this is a running Dart web-ui app, and
+some key processes have occurred to get us to this point.
+
+
 
 {% endcapture %}
 
