@@ -17,7 +17,7 @@ article:
 {% capture whats_the_point %}
 
 * This blue box shows page highlights.
-* Learn Web-UI - a basic knowledge of the Dart language is useful.
+* Learn Web UI - a basic knowledge of the Dart language is useful.
 * You'll need the Dart Editor to work through this tutorial, 
   (but it's not mandatory for Web UI).
 * This tutorial is a port of the AngularJS Phone Catalog tutorial.
