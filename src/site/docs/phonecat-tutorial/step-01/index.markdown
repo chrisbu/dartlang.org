@@ -1,10 +1,10 @@
 ---
 layout: default
-title: "Step 0: Bootstrapping"
-description: "Get ready to start building with WebUI... you're starting a journey of discovery"
+title: "Step 1: Static Pages"
+description: "It all starts with a static page.  It will get more exciting..."
 has-permalinks: true
 tutorial:
-  id: phonecat-step-00
+  id: phonecat-step-01
 ---
 
 {% capture whats_the_point %}
@@ -19,22 +19,71 @@ Driven Views
 {% capture content %}
 
 <div class="btn-group">
-  <a class="btn" href="../"><i class="icon-step-backward"> Previous</i></a>
+  <a class="btn" href="../step-00/"><i class="icon-step-backward"> Previous</i></a>
   <button class="btn"><i class="icon-play"> Live Demo</i></button>
-  <button class="btn"><i class="icon-search"> Code Diff</i></button>
+  <a class="btn" href="https://github.com/chrisbu/dart-phonecat/compare/step-0...step-1"><i class="icon-search"> Code Diff</i></a>
   <a class="btn" href="../step-01/"><i class="icon-step-forward"> Next</i></a>
 </div>
 
-You are now ready to build the Web UI phonecat app. In this step, you will become 
-familiar with the most important source code files, learn how the Dart Editor 
-builds a Web UI project, and run the application in the browser.  You will also
-discover how the Web UI tools provide cross-browser bootstrapping for your
-app.
+In order to illustrate how Web UI enhances standard HTML, you will create a 
+purely _static_ HTML page and then examine how we can turn this HTML code into
+a template that Web UI will use to dynamically display the same result with any
+set of data.
+
+<div class="accordion">
+  <div class="accordion-group">
+    <div class="accordion-heading">
+      <a class="accordion-toggle" 
+          data-toggle="collapse" 
+          data-parent="workspace-reset" href="#collapseOne">
+          <i class="icon-plus"> Workspace reset instructions</i>
+        </a>
+      </div>
+      <div id="collapseOne" class="accordion-body collapse">
+        <div class="accordion-inner">
+          <i class="icon-star"> </i>
+          From the <code>dart-phonecat/</code> folder:
+          <ol>
+            <li>Reset the workspace to step 1.
+            <pre>git checkout -f step-1</pre></li>
+            <li>Refresh your browser, or checkout the <a href="#">//TODO live demo</a></li>
+          </ol>
+        </div>
+      </div>
+  </div>
+</div>
+
+In this step you will add some basic information about two cell phones.
+
+The most important changes are listed below.  You can see the full 
+diff on [Github](https://github.com/chrisbu/dart-phonecat/compare/step-0...step-1)
+
+**web/app.html**:
+
+{% prettify html %}
+
+<ul>
+  <li>
+    <span>Nexus S</span>
+    <p>
+      Fast just got faster with Nexus S.
+    </p>
+  </li>
+  <li>
+    <span>Motorola XOOM™ with Wi-Fi</span>
+    <p>
+      The Next, Next Generation tablet.
+    </p>
+  </li>
+</ul>
+
+{% endprettify %}
+
 
 If you've been through another Web-UI tutorial, or are happy with how the Web UI
 build tool work, feel free to skip this step.
 
-<i class="icon-star"> </i>
+![dart-logo](/imgs/Dart_Logo_21.png)
 Using the terminal, or Git Bash, change into the  `dart-phonecat` folder
 and run this command:
 
@@ -50,7 +99,7 @@ to be lost.
 
 ## Open the project
 
-<i class="icon-star"> </i>
+![dart-logo](/imgs/Dart_Logo_21.png)
 Use the Dart Editor's `Open Folder` dialog, browse to `dart-phonecat` project.  
 After a few seconds of "building" (more on this in a minute), your project's 
 structure will look like this:
@@ -60,7 +109,7 @@ structure will look like this:
 For the moment, you are only interested in the contents of the `web/` folder.  
 The `simplehttpserver.dart` is a tutorial-specific utility that you will use in later steps.
 
-<i class="icon-star"> </i>
+![dart-logo](/imgs/Dart_Logo_21.png)
 Hit the green `Run` button to start running the app.  This starts the project 
 in the Dartium web browser, and you should get an html page that shows 
 "Nothing here yet!":
@@ -84,7 +133,7 @@ the main html file that contains our app:
     <link rel="stylesheet" href="app.css">
   </head>
   <body>
-     <p>Nothing here {{ "{{'yet'.concat('!') " }}}}</p>
+    <p>Nothing here {{ "{{'yet'.concat('!') " }}}}</p>
 
     <script type="application/dart" src="app.dart"></script>
     <script src="packages/browser/dart.js"></script>
@@ -257,7 +306,7 @@ This is almost the same as your original html, except for two parts:
 
 ## Experiments
 
-<i class="icon-star"> </i>
+![dart-logo](/imgs/Dart_Logo_21.png)
 Try adding a new expression to `app.html` that will do some math:
 
 {% prettify html %}
@@ -268,7 +317,7 @@ Try adding a new expression to `app.html` that will do some math:
 
 Check that the correct answer renders in your browser.
 
-<i class="icon-star"> </i>
+![dart-logo](/imgs/Dart_Logo_21.png)
 Try copying the url from Dartium into Firefox, and check that the JavaScript
 version of your app runs correctly:
 
@@ -286,4 +335,3 @@ Now that you are familiar with the tools, move on to [step 1](../step-01/)
 {% endcapture %}
 
 {% include phonecat-tutorial.html %}
-
