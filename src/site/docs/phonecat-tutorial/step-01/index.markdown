@@ -19,10 +19,10 @@ Driven Views
 {% capture content %}
 
 <div class="btn-group">
-  <a class="btn" href="../step-00/"><i class="icon-step-backward"> </i>Previous</a>
-  <button class="btn"><i class="icon-play"> </i>Live Demo</button>
-  <a class="btn" href="https://github.com/chrisbu/dart-phonecat/compare/step-0...step-1"><i class="icon-search"> </i>Code Diff</a>
-  <a class="btn" href="../step-01/"><i class="icon-step-forward"> </i>Next</a>
+  <a class="btn" href="../step-00/"><i class="icon-step-backward">&nbsp;</i>Previous</a>
+  <button class="btn"><i class="icon-play">&nbsp;</i>Live Demo</button>
+  <a class="btn" href="https://github.com/chrisbu/dart-phonecat/compare/step-0...step-1"><i class="icon-search">&nbsp;</i>Code Diff</a>
+  <a class="btn" href="../step-01/"><i class="icon-step-forward">&nbsp;</i>Next</a>
 </div>
 
 In order to illustrate how Web UI enhances standard HTML, you will create a 
@@ -96,13 +96,13 @@ This addition to your app uses static HTML to display the list. Now,
 let's go to step 2 to learn how to use Web UI to dynamically generate the 
 same list.
 
-{% endcapture %}
-
 <div class="btn-group">
-  <a class="btn" href="../step-00/"><i class="icon-step-backward"> </i>Previous</a>
-  <button class="btn"><i class="icon-play"> </i>Live Demo</button>
-  <a class="btn" href="https://github.com/chrisbu/dart-phonecat/compare/step-0...step-1"><i class="icon-search"> </i>Code Diff</a>
-  <a class="btn" href="../step-01/"><i class="icon-step-forward"> </i>Next</a>
+  <a class="btn" href="../step-00/"><i class="icon-step-backward">&nbsp;</i>Previous</a>
+  <button class="btn"><i class="icon-play">&nbsp;</i>Live Demo</button>
+  <a class="btn" href="https://github.com/chrisbu/dart-phonecat/compare/step-0...step-1"><i class="icon-search">&nbsp;</i>Code Diff</a>
+  <a class="btn" href="../step-01/"><i class="icon-step-forward">&nbsp;</i>Next</a>
 </div>
+
+{% endcapture %}
 
 {% include phonecat-tutorial.html %}

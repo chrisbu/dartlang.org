@@ -19,10 +19,10 @@ Driven Views
 {% capture content %}
 
 <div class="btn-group">
-  <a class="btn" href="../"><i class="icon-step-backward"> </i>Previous</a>
-  <button class="btn"><i class="icon-play"> </i> Live Demo</button>
-  <button class="btn"><i class="icon-search"> </i> Code Diff</button>
-  <a class="btn" href="../step-01/"><i class="icon-step-forward"> </i> Next</a>
+  <a class="btn" href="../"><i class="icon-step-backward">&nbsp;</i>Previous</a>
+  <button class="btn"><i class="icon-play">&nbsp;</i>Live Demo</button>
+  <button class="btn"><i class="icon-search">&nbsp;</i>Code Diff</button>
+  <a class="btn" href="../step-01/"><i class="icon-step-forward">&nbsp;</i>Next</a>
 </div>
 
 You are now ready to build the Web UI phonecat app. In this step, you will become 
@@ -283,15 +283,14 @@ compiler to produce a bootstrapped output.
 Now that you are familiar with the tools, move on to [step 1](../step-01/)
 , where you will see the first part of our Phone Catalog as a static html file.
 
-{% endcapture %}
-
 <div class="btn-group">
-  <a class="btn" href="../"><i class="icon-step-backward"> </i>Previous</a>
-  <button class="btn"><i class="icon-play"> </i> Live Demo</button>
-  <button class="btn"><i class="icon-search"> </i> Code Diff</button>
-  <a class="btn" href="../step-01/"><i class="icon-step-forward"> </i> Next</a>
+  <a class="btn" href="../"><i class="icon-step-backward">&nbsp;</i>Previous</a>
+  <button class="btn"><i class="icon-play">&nbsp;</i>Live Demo</button>
+  <button class="btn"><i class="icon-search">&nbsp;</i>Code Diff</button>
+  <a class="btn" href="../step-01/"><i class="icon-step-forward">&nbsp;</i>Next</a>
 </div>
 
+{% endcapture %}
 
 {% include phonecat-tutorial.html %}
 
