@@ -18,7 +18,7 @@ Driven Views
 
 {% capture content %}
 
-<div class="btn-group">
+<div class="btn-group span9 offset1">
   <a class="btn" href="../"><i class="icon-step-backward">&nbsp;</i>Previous</a>
   <button class="btn"><i class="icon-play">&nbsp;</i>Live Demo</button>
   <button class="btn"><i class="icon-search">&nbsp;</i>Code Diff</button>
@@ -283,7 +283,7 @@ compiler to produce a bootstrapped output.
 Now that you are familiar with the tools, move on to [step 1](../step-01/)
 , where you will see the first part of our Phone Catalog as a static html file.
 
-<div class="btn-group">
+<div class="btn-group span9 offset1">
   <a class="btn" href="../"><i class="icon-step-backward">&nbsp;</i>Previous</a>
   <button class="btn"><i class="icon-play">&nbsp;</i>Live Demo</button>
   <button class="btn"><i class="icon-search">&nbsp;</i>Code Diff</button>
