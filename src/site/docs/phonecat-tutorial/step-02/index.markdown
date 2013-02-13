@@ -29,11 +29,18 @@ Now it's time to make the web page dynamic- with Web UI.
 We'll also add a test that verifies the code for the controller we're going
 to add.
 
-There are many ways to structure the code for an application.  For Web UI apps,
-we encourage the use of the Model-View-Controller (MVC) design pattern to
-to decouple the code and to separate concerns.  With that in mind, let's use
-a little Web UI and Dart to add model, view and controller components to 
-our app.
+In this application, we will make use of Model Driven Views (MDV) to support a 
+sensible dynamic separation between page display and the data which drives it.
+In this model, the application declares the relationship between the data and
+the presentation, and updates to the application data are reflected in the 
+presentation, and user input is assigned to the application data.  This two-way
+data binding helps reduce the need for manually creating controller objects that
+do these bindings by hand.
+
+With that in mind, let's use little Web UI and Dart to declare a templated view
+and its relationship with the underlying data.  We will update the `app.html` 
+file to contain a dynamic view template, and add a model object (in the shape
+of a `Phone` class) to our `app.dart` file.
 
 <div class="accordion">
   <div class="accordion-group">
@@ -51,6 +58,7 @@ our app.
           <ol>
             <li>Reset the workspace to step 1.
             <pre>git checkout -f step-2</pre></li>
+            <li>Open or refresh the project in the Dart Editor</li>
             <li>Refresh your browser, or checkout the <a href="#">//TODO live demo</a></li>
           </ol>
         </div>
@@ -58,9 +66,9 @@ our app.
   </div>
 </div>
 
-The app now contains a list with three phones.
+The app now contains a dynamically generated list with three phones.
 
-The most important changes are listed below.  You can see the ful diff on Github.
+The most important changes are listed below.  You can see the full diff on Github.
 
 ## View and Template
 
@@ -85,66 +93,121 @@ The view component is constructed by Web UI from this template:
 
 {% endprettify %}
 
-We replaced the hard-coded phone list with the [//TODO template](##) directive and 
+We replaced the hard-coded phone list with the [//TODO: `template`](##) directive and 
 two Web UI expressions enclosed in curly braces: <code>{{ " {{ phone.name " }}}}</code>
 and <code>{{ " {{ phone.snippet " }}}}</code>:
 
-- The `<template iterate="phone in phones">` statement uses the `iterate` directive
-  to tell Web UI to iterate for each `phone` in the list of `phones`.  Where
-  did the list of phones come from?
-
-  The phonecat app consists of both the `app.html` _and_ `app.dart` files.  In
-  our `app.dart` file, we can define code structures and objects.
-
-  There are two key items that we've added - the first is a `Phones` class, 
-  shown below:
-
-  {% prettify dart %}
-
-  class Phone {
-    String name;
-    String snippet;
-  
-    Phone(this.name, this.snippet);
-  }
-
-  {% endprettify %}
-
-  Then we use the Phone class to create a List of phone objects:
-
-  {% prettify dart %}
-
-  List<Phone> phones = [
-    new Phone("Nexus S", "Fast just got faster with Nexus S."),
-    new Phone("Motorola XOOM™ with Wi-Fi","The Next, Next Generation tablet."),
-    new Phone("MOTOROLA XOOM™", "The Next, Next Generation tablet.") 
-  ];
-
-  {% endprettify %}
-
-  Web UI binds this `phones` list to the template.
-
 - As we learned in step 0, the curly braces around `phone.name` and `phone.snippet`
   deonte bindings.  As opposed to evaluating constants, these expressions are 
-  referring to our application model, the `Phone` class, which was setup in 
-  our `app.dart` file.
+  referring to our application model, the `Phone` class, which you are about to
+  see.
+
+
+## Models and Classes
+
+The `<template iterate="phone in phones">` statement uses the [//TODO: `iterate`](##) directive
+to tell Web UI to iterate for each `phone` in the list of `phones`.  Where
+did the list of phones come from?
+
+In Dart, the Model part of Model Driven Views generally refers to instances
+of a particular class.  In our phonecat example, that class is defined as the
+`Phone` class in the `app.dart` file, and `phones` refers to a list of `Phone` 
+objects.
+
+The `Phone` class, which defines the "Model" is shown below:
+
+{% prettify dart %}
+
+class Phone {
+  String name;
+  String snippet;
+
+  Phone(this.name, this.snippet);
+}
+
+{% endprettify %}
+
+Then we use the Phone class to create a `List` of `phone` objects:
+
+{% prettify dart %}
+
+List<Phone> phones = [
+  new Phone("Nexus S", "Fast just got faster with Nexus S."),
+  new Phone("Motorola XOOM™ with Wi-Fi","The Next, Next Generation tablet."),
+  new Phone("MOTOROLA XOOM™", "The Next, Next Generation tablet.") 
+];
+
+{% endprettify %}
+
+Web UI binds this `phones` list to the template.
 
 ## Experiments
 
-<i class="icon-star"> </i>
-Try adding more static HTML to `app.html`.  For example: 
+<i class="icon-star"> </i> 
+Add another binding to `app.html`. For example:
 
 {% prettify html %}
 
-<p>Total number of phones: 2</p>
+<p>Total number of phones: {{ " {{ phones.length " }}}}</p>
+
+{% endprettify %}
+
+<i class="icon-star"> </i> 
+Create a new model property in 
+the `app.dart` file, and bind it to the template.  For example
+
+{% prettify dart %}
+
+var hello = "Hello World";
+
+{% endprettify %}
+
+Refresh your browser and make sure it says "Hello World".
+
+<i class="icon-star"> </i> 
+Create a template that constructs a simple table.  Tables are 
+fussy about the child tags, so the `template` needs to exist as an
+attribute of the `table` tag itself.
+
+{% prettify html %}
+
+<table template iterate="row in [0,1,2,3,4,5,6,7]">
+  <tr>
+    <td>{{ " {{ row " }}}}</td>
+  <tr>
+</table>
+
+{% endprettify  %}
+
+Now, make the list 1-based by incrementing `row` by one in the binding:
+  
+{% prettify html %}
+
+<table template iterate="row in [0,1,2,3,4,5,6,7]">
+    <tr>
+      <td>{{ " {{ row + 1 " }}}}</td>
+    </tr>
+</table>
+ 
+{% endprettify %}
+
+<i class="icon-star"> </i>
+Now move the list of numbers into the `app.dart` code and bind using the 
+list's variable name:
+
+{% prettify dart %}
+
+var numbers = [0,1,2,3,4,5,6,7];
 
 {% endprettify %}
 
 ## Summary
 
-This addition to your app uses static HTML to display the list. Now, 
-let's go to step 2 to learn how to use Web UI to dynamically generate the 
-same list.
+This step introduced the idea of Model Driven Views, which allows you to have
+data that is decoupled from its representation.  The view lives in a 
+Web UI template, and the model objects live in source code.  In the next step, 
+you will learn how to make these templates react dynamically to updates to the
+underlying lists by using watchers.
 
 <div class="btn-group span9 offset1">
   <a class="btn" href="../step-01/"><i class="icon-step-backward">&nbsp;</i>Previous</a>
